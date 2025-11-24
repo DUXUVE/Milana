@@ -1,15 +1,11 @@
 import math
-
 import pygame
-
 from constants import (
     PLAYER_SIZE, PLAYER_MAX_SPEED, ACCELERATION,
     DECELERATION, Color, Display
 )
 from typing import TYPE_CHECKING
-
 from game_object import GameObject
-
 if TYPE_CHECKING:
     from game import Game
 
@@ -26,7 +22,6 @@ class Player(GameObject):
         self.game = game
 
     def update(self):
-        # Move player
         speed = math.sqrt(self.hspeed**2 + self.vspeed**2)
         if self.thrust:
             if speed + ACCELERATION < PLAYER_MAX_SPEED:
@@ -61,7 +56,6 @@ class Player(GameObject):
         self.x += self.hspeed
         self.y += self.vspeed
 
-        # Check for wrapping
         if self.x > Display.width:
             self.x = 0
         elif self.x < 0:
@@ -71,7 +65,6 @@ class Player(GameObject):
         elif self.y < 0:
             self.y = Display.height
 
-        # Rotate player
         self.dir += self.rtspd
 
     def draw(self):
@@ -80,7 +73,6 @@ class Player(GameObject):
         y = self.y
         s = PLAYER_SIZE
         t = self.thrust
-        # Draw player
         pygame.draw.line(
             self.game.display, Color.white,
             (x - (s * math.sqrt(130) / 12) * math.cos(math.atan(7 / 9) + a),
@@ -114,7 +106,6 @@ class Player(GameObject):
                  y + (s * math.sqrt(5) / 4) * math.sin(-a + math.pi / 6)))
 
     def killPlayer(self):
-        # Reset the player
         self.x = Display.width / 2
         self.y = Display.height / 2
         self.thrust = False

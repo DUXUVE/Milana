@@ -3,10 +3,8 @@ import random
 import math
 from typing import TYPE_CHECKING
 import pygame
-
 from constants import Color, Display
 from game_object import GameObject
-
 if TYPE_CHECKING:
     from game import Game
 
@@ -18,7 +16,6 @@ class AsteroidType(Enum):
 
 
 class Asteroid(GameObject):
-    '''Represents breakable asteroid game objects'''
 
     def __init__(self, x: int, y: int, type_: AsteroidType, game: Game):
         self.x = x

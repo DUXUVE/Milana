@@ -2,7 +2,6 @@ import math
 import random
 import pygame
 from typing import TYPE_CHECKING
-
 from game_object import GameObject
 
 if TYPE_CHECKING:
@@ -27,15 +26,12 @@ class Saucer(GameObject):
         self.game = game
 
     def update(self):
-        # Move player
         self.x += SAUCER_SPEED * math.cos(self.dir * math.pi / 180)
         self.y += SAUCER_SPEED * math.sin(self.dir * math.pi / 180)
 
-        # Choose random direction
         if random.randrange(0, 100) == 1:
             self.dir = random.choice(self.dirchoice)
 
-        # Wrapping
         if self.y < 0:
             self.y = Display.height
         elif self.y > Display.height:
@@ -43,7 +39,6 @@ class Saucer(GameObject):
         if self.x < 0 or self.x > Display.width:
             self.state = "Dead"
 
-        # Shooting
         if self.type == "Large":
             self.bdir = random.randint(0, 360)
         if self.cd == 0:
@@ -53,22 +48,17 @@ class Saucer(GameObject):
         else:
             self.cd -= 1
 
-        # Play SFX
         if self.type == "Large":
             pygame.mixer.Sound.play(snd_saucerB)
         else:
             pygame.mixer.Sound.play(snd_saucerS)
 
     def reset(self):
-        # Create saucer
-        # Set state
         self.state = "Alive"
 
-        # Set random position
         self.x = random.choice((0, Display.width))
         self.y = random.randint(0, Display.height)
 
-        # Set random type
         if random.randint(0, 1) == 0:
             self.type = "Large"
             self.size = 20
@@ -76,7 +66,6 @@ class Saucer(GameObject):
             self.type = "Small"
             self.size = 10
 
-        # Create random direction
         if self.x == 0:
             self.dir = 0
             self.dirchoice = (0, 45, -45)
@@ -84,11 +73,9 @@ class Saucer(GameObject):
             self.dir = 180
             self.dirchoice = (180, 135, -135)
 
-        # Reset bullet cooldown
         self.cd = 0
 
     def draw(self):
-        # Draw saucer
         pygame.draw.polygon(
             self.game.gameDisplay, Color.white,
             ((self.x + self.size, self.y),

@@ -1,10 +1,8 @@
 import pygame
 from constants import Color, Display
 from typing import TYPE_CHECKING
-
 from game_object import GameObject
 from utilities import draw_text
-
 if TYPE_CHECKING:
     from game import Game
 

@@ -1,13 +1,10 @@
 import math
-
 import pygame
-
 from constants import BULLET_SPEED, Display, Color
 from game_object import GameObject
 
 
 class Bullet(GameObject):
-    '''Projectile object for Player and Saucer'''
 
     def __init__(self, x: float, y: float,
                  direction: float, surface: pygame.Surface):

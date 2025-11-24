@@ -6,7 +6,6 @@ from constants import Color
 def draw_text(surface: pygame.Surface, message: str,
               color: tuple[int, int, int],
               x: float, y: float, size: int, center=True):
-    '''Function to draw text on the screen'''
     font = pygame.font.SysFont("Calibri", size)
     screen_text = font.render(message, True, color)
     if center:
@@ -19,7 +18,6 @@ def draw_text(surface: pygame.Surface, message: str,
 
 def is_colliding(centerX: int, centerY: int,
                  centerXTo: int, centerYTo: int, radius: int):
-    '''Create function to check for collision'''
     is_horizontal_collided = (
         centerX > centerXTo - radius and
         centerX < centerXTo + radius

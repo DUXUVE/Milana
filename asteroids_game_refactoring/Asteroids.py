@@ -1,5 +1,3 @@
-# Import modules
-
 from game import Game
 
 

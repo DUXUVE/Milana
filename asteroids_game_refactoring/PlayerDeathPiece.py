@@ -1,12 +1,9 @@
 import math
 import random
 from typing import TYPE_CHECKING
-
 from constants import Color
-
 if TYPE_CHECKING:
     from game import Game
-
 import pygame
 
 
