@@ -1,9 +1,0 @@
-psql
-
-C:\"Program Files"\PostgreSQL\17\bin\psql.exe "postgresql://postgres:admin@localhost/postgres" -c "CREATE DATABASE titanic;"
-
-wget https://raw.githubusercontent.com/neondatabase/postgres-sample-dbs/main/titanic.sql
-
-C:\"Program Files"\PostgreSQL\17\bin\psql.exe "postgresql://postgres:admin@localhost/titanic" -f titanic.sql
-
-C:\"Program Files"\PostgreSQL\17\bin\psql.exe "postgresql://postgres:admin@localhost/titanic"
