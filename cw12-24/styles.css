@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant:ital,wght@0,1..1000;1,1..1000&display=swap');
+
+:root {
+    font-size: 20px;
+    color: hsl(324, 43%, 35%);
+    font-family: "Ysabeau Infant", sans-serif; 
+    font-optical-sizing: auto; 
+    font-weight: normal; 
+    font-style: normal;
+}
+
+body {
+    line-height: normal;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.7rem;
+    color: hsl(324, 43%, 45%);
+    font-style: italic;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+a {
+    color: hsl(324, 75%, 50%);
+}
+
+strong {
+    font-weight: 700;
+}
+
+.aligned-center {
+    text-align: center;
+}
