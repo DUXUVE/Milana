@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let name = prompt("имя:");
+    alert("Привет, " + name);
+
+    const currentYear = 2026;
+    let birthYear = +prompt("год рождения:");
+    let age = currentYear - birthYear;
+    alert("Вам " + age + " лет.");
+
+    let side = parseFloat(prompt("Введите длину стороны квадрата:"));
+    let perimeter = side * 4;
+    alert("Периметр квадрата: " + perimeter);
+
+    let radius = +prompt("радиус окружности:");
+    let area = 3.14 * radius * radius;
+    alert("площадь: " + area);
+
+    let distance = +prompt("расстояние между городами:");
+    let hours = +prompt("за сколько часов хотите добраться");
+    let speed = distance / hours;
+    alert("необходимая скорость: " + speed + " км/ч");
+
+    const USD_TO_EUR = 0.92;
+    let dollars = +prompt("сумма в долларах:");
+    let euros = dollars * USD_TO_EUR;
+    alert(dollars + " USD = " + euros + " EUR");
+
+    let flashSizeGB = +prompt("объем флешки:");
+    let filesCount = Math.floor((flashSizeGB * 1024) / 820);
+    alert("поместится " + filesCount + " файлов");
+
+    let money = +prompt("введите сумму денег:");
+    let chocolatePrice = +prompt("введите цену шоколадки:");
+    let chocolates = Math.floor(money / chocolatePrice);
+    let change = money % chocolatePrice;
+    alert("можно купить " + chocolates + " шоколадок. сдача: " + change);
+
+    let number = +prompt("введите трехзначное число:");
+    let reversed = (number % 10) * 100 + ((number % 100) / 10 | 0) * 10 + (number / 100 | 0);
+    alert("задом наперед: " + reversed);
+    </script>
+</body>
+</html>

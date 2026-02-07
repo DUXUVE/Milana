@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let age = +prompt("возраст");
+    if (age >= 0 && age <= 2) {
+        alert("ребенок");
+    } else if (age >= 12 && age <= 18) {
+        alert("подросток");
+    } else if (age >= 18 && age <= 60) {
+        alert("взрослый");
+    } else if (age >= 60) {
+        alert("пенсионер");
+    }
+
+
+    let key = +prompt("введите число от 0 до 9");
+    switch (key) {
+        case 1:
+            alert("!");
+            break;
+        case 2:
+            alert("@");
+            break;
+        case 3:
+            alert("#");
+            break;
+        case 4:
+            alert("$");
+            break;
+        case 5:
+            alert("%");
+            break;
+        case 6:
+            alert("^");
+            break;
+        case 7:
+            alert("&");
+            break;
+        case 8:
+            alert("*");
+            break;
+        case 9:
+            alert("(");
+            break;
+        case 0:
+            alert(")");
+            break;
+        default:
+            alert("неверный ввод");
+    }
+
+
+    let number = +prompt("введите трехзначное число");
+    let a = Math.floor(number / 100);
+    let b = Math.floor(number / 10) % 10;
+    let c = number % 10;
+    if (a == b || b == c || a == c) {
+        alert("есть одинаковые цифры");
+    } else {
+        alert("нет одинаковых цифр");
+    }
+
+
+    let year = +prompt("год");
+    if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
+        alert("високосный год");
+    } else {
+        alert("не високосный год");
+    }
+
+
+    let fiveDigit = +prompt("пятиразрядное число");
+    let d1 = Math.floor(fiveDigit / 10000);
+    let d2 = Math.floor(fiveDigit / 1000) % 10;
+    let d3 = Math.floor(fiveDigit / 100) % 10;
+    let d4 = Math.floor(fiveDigit / 10) % 10;
+    let d5 = fiveDigit % 10;
+    if (d1 == d5 && d2 == d4) {
+        alert("палиндром");
+    } else {
+        alert("не палиндром");
+    }
+
+
+    let usd = +prompt("введите сумму в USD");
+    let currency = prompt("валюта (EUR/UAN/AZN)");
+    let rate;
+    switch (currency.toUpperCase()) {
+        case "EUR":
+            rate = 0.85;
+            break;
+        case "UAN":
+            rate = 36.5;
+            break;
+        case "AZN":
+            rate = 1.7;
+            break;
+        default:
+            alert("неверная валюта");
+            break;
+    }
+    if (rate) {
+        alert(`${usd} USD = ${usd * rate} ${currency}`);
+    }
+
+
+    let purchase = +prompt("введите сумму покупки");
+    let discount;
+    if (purchase >= 200 && purchase < 300) {
+        discount = 0.03;
+    } else if (purchase >= 300 && purchase < 500) {
+        discount = 0.05;
+    } else if (purchase >= 500) {
+        discount = 0.07;
+    }
+    alert(`сумма к оплате: ${purchase - (purchase * discount)}`);
+
+
+    let circle = +prompt("введите длину окружности");
+    let square = +prompt("введите периметр квадрата");
+    let radius = circle / (2 * 3.14);
+    let side = square / 4;
+    if (radius * 2 <= side) {
+        alert("окружность поместится в квадрат");
+    } else {
+        alert("окружность не поместится в квадрат");
+    }
+
+
+    let score = 0;
+    let answer1 = +prompt("Сколько будет 2 + 2?\n1) 3\n2) 4\n3) 5");
+    if (answer1 == 2) {
+        score += 2;
+    }
+    let answer2 = +prompt("Какой город является столицей России?\n1) Санкт-Петербург\n2) Москва\n3) Новосибирск");
+    if (answer2 == 2) {
+        score += 2;
+    }
+    let answer3 = +prompt("Какое животное не умеет летать?\n1) Птица\n2) Бабочка\n3) Кит");
+    if (answer3 == 3) {
+        score += 2;
+    }
+    alert("вы набрали " + score + " баллов");
+
+
+    let day = +prompt("день");
+    let month = +prompt("месяц");
+    let year = +prompt("год");
+    let daysInMonth;
+    if (month === 2) {
+        if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {
+            daysInMonth = 29;
+        } else {
+            daysInMonth = 28;
+        }
+    } else if ([4, 6, 9, 11].includes(month)) {
+        daysInMonth = 30;
+    } else {
+        daysInMonth = 31;
+    }
+    if (day < daysInMonth) {
+        day++;
+    } else {
+        day = 1;
+        if (month < 12) {
+            month++;
+        } else {
+            month = 1;
+            year++;
+        }
+    }
+    alert("следующая дата: " + day + "." + month + "." + year);
+    </script>
+</body>
+</html>
