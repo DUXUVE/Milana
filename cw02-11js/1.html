@@ -1,0 +1,50 @@
+<script>
+//   let a = 0;
+//   while (a < 10) {
+//     document.write(`${a} `);
+//     a++;
+//   }
+//   while (gameIsRunning) {
+//     if (player.isQuitting) {
+//       gameIsRunning = false;
+//     }
+//   }
+
+
+//   let arr = [1, 2, 7, 3, 4, 2];
+//   for (let i = 0; i < arr.length; i++) {
+//     document.write(`${arr[i]} `);
+//   }
+
+
+//   const number = +prompt("Введите число: ");
+//   for (let i = 0; i <= 100; i++) {
+//     if(i % number == 0) {
+//         document.write(i)
+//     }
+// }
+
+
+// const rangeBegin = +prompt("Начало диапазона: ");
+// const rangeEnd = +prompt("Конец диапазона: ");
+// const step = +prompt("Шаг: ");
+// for (let i = rangeBegin + step - 1; i < rangeEnd; i = i + step) {
+//     document.write(i)
+// }
+
+
+const number = +prompt("Введите число: ");
+let isPrime = true;
+for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+        isPrime = false;
+        break;
+    }
+}
+    if(isPrime) {
+        document.write("1");
+    }
+    else {
+        document.write("0");
+    }
+</script>  
