@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Практика DOM</title>
+</head>
+<body>
+
+<h1>старый заголовок</h1>
+
+<p>обычный текст</p>
+
+<button>нажми меня</button>
+
+<a>пустая ссылка</a>
+
+<script>
+//1
+const title = document.querySelector("h1");
+title.textContent = "привет";
+
+//2
+const paragraph = document.querySelector("p");
+paragraph.style.color = "red";
+
+//3
+const button = document.querySelector("button");
+button.addEventListener("click", function() {
+    button.textContent = "нажато";
+});
+
+//4
+const link = document.querySelector("a");
+link.setAttribute("href", "https://ya.ru");
+
+//5
+const newElement = document.createElement("p");
+newElement.textContent = "я новый элемент, добавленный в конец страницы";
+document.body.appendChild(newElement);
+</script>
+
+</body>
+</html>

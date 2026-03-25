@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+class Marker {
+    constructor(color, inkAmount) {
+        this.color = color;
+        this.inkAmount = inkAmount;
+    }
+
+    print(text) {
+        let result = '';
+        for (let char of text) {
+            if (this.inkAmount <= 0) break;
+            result += char;
+            if (char !== ' ') {
+                this.inkAmount -= 0.5;
+            }
+        }
+        console.log(`%c${result}`, `color: ${this.color}`);
+    }
+}
+
+class RefillableMarker extends Marker {
+    refill(percent) {
+        this.inkAmount = Math.min(100, this.inkAmount + percent);
+    }
+}
+
+const marker = new RefillableMarker('blue', 10);
+marker.print('dddddddddddddddddddddddddddd');
+marker.refill(20);
+marker.print('dddddddddddddddddddddddddddddddd');
+
+
+
+
+
+
+class ExtendedDate extends Date {
+    toStringText() {
+        const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+        return `${this.getDate()} ${months[this.getMonth()]}`;
+    }
+
+    isFutureOrPresent() {
+        const now = new Date();
+        return this >= now;
+    }
+
+    isLeapYear() {
+        const year = this.getFullYear();
+        return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    }
+
+    nextDate() {
+        const next = new Date(this);
+        next.setDate(this.getDate() + 1);
+        return next;
+    }
+}
+
+const extDate = new ExtendedDate(2025, 0, 15);
+console.log('дата текстом:', extDate.toStringText());
+console.log('будущая или текущая', extDate.isFutureOrPresent());
+console.log('високосный год', extDate.isLeapYear());
+console.log('следующая дата:', extDate.nextDate().toLocaleDateString());
