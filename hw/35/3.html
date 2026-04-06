@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Практика DOM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
 
-<h1>старый заголовок</h1>
+<h1>старый текст</h1>
 
 <p>обычный текст</p>
 
 <button>нажми меня</button>
 
-<a>пустая ссылка</a>
+<a>ссылка</a>
 
 <script>
 //1
@@ -20,8 +21,8 @@ const title = document.querySelector("h1");
 title.textContent = "привет";
 
 //2
-const paragraph = document.querySelector("p");
-paragraph.style.color = "red";
+const p = document.querySelector("p");
+p.style.color = "red";
 
 //3
 const button = document.querySelector("button");
@@ -35,7 +36,7 @@ link.setAttribute("href", "https://ya.ru");
 
 //5
 const newElement = document.createElement("p");
-newElement.textContent = "я новый элемент, добавленный в конец страницы";
+newElement.textContent = "новый текст";
 document.body.appendChild(newElement);
 </script>
 
