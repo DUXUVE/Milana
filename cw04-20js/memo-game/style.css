@@ -1,0 +1,13 @@
+.colored-block {
+    width: 200px;
+    height: 200px;
+}
+
+.block-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    width: min-content;
+    margin: 0 auto;
+    margin-top: auto;
+}
