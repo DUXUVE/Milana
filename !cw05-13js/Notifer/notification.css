@@ -1,0 +1,26 @@
+.Notification {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: left;
+    padding: 10px;
+}
+
+.Notification_info {
+    background-color: lightblue;
+    border-color: rgb(88, 139, 157);
+}
+
+.Notification_warning {
+    background-color: rgb(245, 223, 82);
+    border-color: rgb(255, 230, 39);
+}
+
+.Notification_success {
+    background-color: rgb(144, 235, 114);
+    border-color: rgb(16, 117, 24);
+}
+
+.Notification_error {
+    background-color: rgb(241, 122, 104);
+    border-color: rgb(255, 1, 1);
+}

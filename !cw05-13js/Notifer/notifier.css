@@ -1,0 +1,9 @@
+.Notifier {
+    position: absolute;
+    left: 50%;
+    width: 25%;
+    transform: translate(50%);
+    display: flex;
+    list-style-type: none;
+    gap: 5px;
+}
