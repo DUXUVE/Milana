@@ -9,7 +9,7 @@ document.body.appendChild(element);
 
 const notifier = Notifier.createAttachedElement();
 
-notifier.showWarning("рфпфп");
+// notifier.showWarning("рфпфп");
 notifier.showError("error");
-notifier.showInfo("dsgsgd");
-notifier.showSuccess("sdgsgcd");
+// notifier.showInfo("dsgsgd");
+// notifier.showSuccess("sdgsgcd");
