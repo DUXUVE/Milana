@@ -1,0 +1,9 @@
+.box-notifier {
+    position: absolute;
+    left: 50%;
+    width: 25%;
+    transform: translateX(-50%);
+    display: flex;
+    list-style-type: none;
+    gap: 5px;
+}

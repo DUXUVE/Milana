@@ -9,6 +9,7 @@ document.body.appendChild(element);
 
 const notifier = Notifier.createAttachedElement();
 
+notifier.setDefaultTimeout(200);
 notifier.showWarning("рфпфп");
 notifier.showError("error");
 notifier.showInfo("dsgsgd");
