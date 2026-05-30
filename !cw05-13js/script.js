@@ -11,6 +11,7 @@ const notifier = Notifier.createAttachedElement();
 
 notifier.setDefaultTimeout(200);
 notifier.showWarning("рфпфп");
+// notifier.showWarning("рфпфп");
 notifier.showError("error");
-notifier.showInfo("dsgsgd");
-notifier.showSuccess("sdgsgcd");
+// notifier.showInfo("dsgsgd");
+// notifier.showSuccess("sdgsgcd");
