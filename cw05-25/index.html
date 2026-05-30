@@ -1,15 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script type="module" src="./Carousel/carousel.js"></script>
-    <link rel="stylesheet" href="./Carousel/carousel.css">
-</head>
-<body>
+    <script type="module" src="script.js"></script>
+    <link rel="stylesheet" href="./Carousel/carousel.css" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .test1 {
+        background-color: gray;
+      }
+      .test2 {
+        background-color: blue;
+      }
+      .test3 {
+        background-color: red;
+      }
+      .carousel {
+        --width: 800px;
+        height: 50vh;
+        width: var(--width);
+        border-radius: 4px;
+        position: relative;
+        overflow-x: hidden;
+      }
+      .carousel-inner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        flex-wrap: nowrap;
+        height: 100%;
+      }
+      .images {
+        width: var(--width);
+        height: 100%;
+      }
+      .carousel__button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        font-size: 36px;
+        color: white;
+        width: 1.3em;
+        height: 1.3em;
+        text-align: center;
+
+        border: none;
+      }
+      .carousel__button.left {
+        left: 1rem;
+      }
+      .carousel__button.right {
+        right: 1rem;
+      }
+    </style>
+  </head>
+  <body>
     <div class="carousel">
-        <li class="images"></li>
+      <div class="carousel-inner">
+        <div class="images test1"></div>
+        <div class="images test2"></div>
+        <div class="images test3"></div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
