@@ -38,11 +38,22 @@
         justify-content: left;
         flex-wrap: nowrap;
         height: 100%;
+        transition: left 0.3s ease-in; 
       }
+
       .images {
         width: var(--width);
         height: 100%;
+        overflow: hidden;
       }
+
+      .images img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
       .carousel__button {
         position: absolute;
         top: 50%;
@@ -69,9 +80,9 @@
   <body>
     <div class="carousel">
       <div class="carousel-inner">
-        <div class="images test1"></div>
-        <div class="images test2"></div>
-        <div class="images test3"></div>
+        <div class="images"><img src="https://i.pinimg.com/736x/8f/ed/5f/8fed5fcd8c1232d53c6fff84d40c8698.jpg" alt=""></div>
+        <div class="images"><img src="https://i.pinimg.com/1200x/d2/60/bf/d260bf268c1ee5fb2cfb6ebeec477ec7.jpg" alt=""></div>
+        <div class="images"><img src="https://i.pinimg.com/control1/1200x/e6/4f/c1/e64fc17c0f368e3917da5a54641a30bd.jpg" alt=""></div>
       </div>
     </div>
   </body>
