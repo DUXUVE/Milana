@@ -1,0 +1,8 @@
+.Counter {
+    display: block;
+    padding: 0.5em 1em;
+    background-color: rgb(232, 118, 139);
+    color: white;
+    border: none;
+}
+

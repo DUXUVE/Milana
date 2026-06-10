@@ -14,8 +14,8 @@ export class Carousel {
         this._leftBtn.classList.add('left');
         this._leftBtn.classList.add('carousel__button');
         this._leftBtn.textContent = '<';
-        this._rightBtn = document.createElement('button');
         this._rightBtn.classList.add('right');
+        this._rightBtn = document.createElement('button');
         this._rightBtn.classList.add('carousel__button');
         this._rightBtn.textContent = '>';
         const carouselInner = document.querySelector(".carousel-inner");
@@ -23,12 +23,12 @@ export class Carousel {
         this._leftBtn.addEventListener('click', () => {
             if (this._setInterval) { clearInterval(this._setInterval); }
             this._index = this._index === 0 ? this._childElements.length - 1 : this._index - 1;
-            carouselInner.style.left = `-${this._index * 100}%`;    
+            carouselInner.style.left = `-${this._index * 100}%`;
         });
         this._rightBtn.addEventListener('click', () => {
             if (this._setInterval) { clearInterval(this._setInterval); }
             this._index = this._index === this._childElements.length - 1 ? 0 : this._index + 1;
-            carouselInner.style.left = `-${this._index * 100}%`;     
+            carouselInner.style.left = `-${this._index * 100}%`;
         });
 
         this._element.append(this._leftBtn, this._rightBtn);
