@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
+
 const useDataLoading = (url) => {
+    const [data, setData] = useState(null);
     useEffect(() => {
         const abortController = new AbortController
 
@@ -13,3 +16,5 @@ const useDataLoading = (url) => {
 
 return{ data, error, isLoading }
 }
+
+export default useDataLoading;
