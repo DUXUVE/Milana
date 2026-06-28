@@ -11,6 +11,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <CatalogPage />
+            },
+            {
+                path: '/about',
+                element: 
             }
         ]
     }
