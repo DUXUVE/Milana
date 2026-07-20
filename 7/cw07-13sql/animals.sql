@@ -197,23 +197,39 @@ INSERT INTO "animal_employee_responsibles" ("animal_id", "employee_id", "date") 
 (19, 1, '2026-07-01 06:00:00'),
 (20, 1, '2026-07-01 06:00:00');
 
-WITH count_by_valiere AS (
-    SELECT voliere_id, COUNT(1) AS animals_count
-    FROM animals GROUP BY voliere_id
+WITH  count_clianings_year AS   (
+    SELECT animals.id,
+        COUNT(1) cleanings_count FROM cleanings
+        INNER JOIN animals ON cleanings.voliere_id = animals.voliere_id
+        WHERE EXTRACT(YEAR FROM CURRENT_DATE) = EXTRACT(YEAR FROM cleanings.date) 
+        GROUP BY animals.id
 ),
-last_cleanings AS (
-    SELECT employee_id, MAX(date) AS max_date
-    FROM cleanings GROUP BY employee_id
-)
-SELECT c.employee_id, animals_count FROM cleanings c
-    INNER JOIN last_cleanings lc ON c.employee_id = lc.employee_id
-    INNER JOIN count_by_valiere cbv ON c.voliere_id = cbv.valiere_id
-WHERE max_date = date;
+    count_feedings_year AS (
+        SELECT animal_id,  COUNT(1) feedings_count FROM feedings
+        WHERE EXTRACT(YEAR FROM CURRENT_DATE) = EXTRACT(YEAR FROM date) 
+        GROUP BY animal_id) 
+SELECT "name", cleanings_count, feedings_count FROM animals LEFT JOIN count_clianings_year  ccy ON animals.id = ccy.id 
+LEFT JOIN count_feedings_year cfy ON animals.id = cfy.animal_id;
 
-SELECT name, is_watched FROM animals LEFT JOIN  (
-  SELECT f.animal_id, CURRENT_TIMESTAMP - INTERVAL '12 days' <= MAX(f.date) AS is_watched FROM feedings f 
-  INNER JOIN animal_employee_responsibles aer 
-  ON aer.employee_id = f.employee_id AND aer.animal_id = f.animal_id 
-  GROUP BY f.animal_id 
-  ) AS w ON animal_id = id
-;
+
+
+-- WITH count_by_valiere AS (
+--     SELECT voliere_id, COUNT(1) AS animals_count
+--     FROM animals GROUP BY voliere_id
+-- ),
+-- last_cleanings AS (
+--     SELECT employee_id, MAX(date) AS max_date
+--     FROM cleanings GROUP BY employee_id
+-- )
+-- SELECT c.employee_id, animals_count FROM cleanings c
+--     INNER JOIN last_cleanings lc ON c.employee_id = lc.employee_id
+--     INNER JOIN count_by_valiere cbv ON c.voliere_id = cbv.valiere_id
+-- WHERE max_date = date;
+
+-- SELECT name, is_watched FROM animals LEFT JOIN  (
+--   SELECT f.animal_id, CURRENT_TIMESTAMP - INTERVAL '12 days' <= MAX(f.date) AS is_watched FROM feedings f 
+--   INNER JOIN animal_employee_responsibles aer 
+--   ON aer.employee_id = f.employee_id AND aer.animal_id = f.animal_id 
+--   GROUP BY f.animal_id 
+--   ) AS w ON animal_id = id
+-- ;
